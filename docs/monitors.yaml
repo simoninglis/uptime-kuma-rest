@@ -1,23 +1,41 @@
 # docs/monitors.yml
-get:
-  description: Get a list of monitors with ID, name, and active status.
-  responses:
-    200:
-      description: List of monitors with ID, name, and active status.
-      schema:
-        type: array
-        items:
-          $ref: '#/definitions/MonitorListItem'
-definitions:
-  MonitorListItem:
-    type: object
-    properties:
-      id:
-        type: integer
-        description: The monitor's ID
-      name:
-        type: string
-        description: The monitor's name
-      active:
-        type: boolean
-        description: Whether the monitor is active or not
+paths:
+  /monitors:
+    get:
+      summary: List all monitors
+      description: This endpoint lists all monitors with their ID, name, and active status. You can filter the monitors by tag using the 'tag' query parameter.
+      parameters:
+        - in: query
+          name: tag
+          schema:
+            type: string
+          description: The tag to filter the monitors by.
+      responses:
+        '200':
+          description: A list of monitors.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: The ID of the monitor.
+                    name:
+                      type: string
+                      description: The name of the monitor.
+                    active:
+                      type: boolean
+                      description: Whether the monitor is active.
+        '500':
+          description: Failed to list monitors.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: The error message.

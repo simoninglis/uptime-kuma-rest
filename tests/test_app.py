@@ -25,6 +25,22 @@ def test_list_monitors_integration(client):
         assert 'id' in response.json[0]
         assert 'name' in response.json[0]
 
+
+def test_list_monitors_with_tag(client):
+    """Integration test for listing monitors with a specific tag against the real Uptime Kuma instance."""
+    response = client.get('/monitors?tag=Application')
+    assert response.status_code == 200
+    # Depending on the expected structure of the monitors list, you might want to add more assertions here
+    # For example, to check if the response is a list:
+    assert isinstance(response.json, list)
+    # And perhaps some basic checks on the list items
+    if response.json:
+        assert 'id' in response.json[0]
+        assert 'name' in response.json[0]
+        # Check if the returned monitors have the 'Application' tag
+        assert 'Application' in response.json[0]['tags']
+
+
 def test_pause_resume_monitor(client):
     # Get the list of monitors and select the first one
     response = client.get('/monitors')

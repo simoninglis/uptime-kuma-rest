@@ -1,6 +1,6 @@
 import os
 import logging
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from uptime_kuma_api import UptimeKumaApi
 from dotenv import load_dotenv
 from flasgger import Swagger, swag_from
@@ -35,10 +35,14 @@ def index():
 @swag_from('docs/monitors.yml')
 def list_monitors():
     """Endpoint to list all monitors with ID, name, and active status."""
+    tag = request.args.get('tag')  # Get the 'tag' query parameter
     try:
         monitors = uptime_kuma_client.get_monitors()
         simplified_monitors = []
         for monitor in monitors:
+            # If a tag is specified and the monitor doesn't have this tag, skip it
+            if tag and tag not in monitor['tags']:
+                continue
             simplified_monitor = {
                 'id': monitor['id'],
                 'name': monitor['name'],
