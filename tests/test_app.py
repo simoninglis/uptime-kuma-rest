@@ -24,6 +24,8 @@ def test_list_monitors_integration(client):
     if response.json:
         assert 'id' in response.json[0]
         assert 'name' in response.json[0]
+        assert 'active' in response.json[0]
+        assert 'tags' in response.json[0]
 
 
 def test_list_monitors_with_tag(client):
@@ -37,6 +39,8 @@ def test_list_monitors_with_tag(client):
     if response.json:
         assert 'id' in response.json[0]
         assert 'name' in response.json[0]
+        assert 'active' in response.json[0]
+        assert 'tags' in response.json[0]
         # Check if the returned monitors have the 'Application' tag
         assert 'Application' in response.json[0]['tags']
 

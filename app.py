@@ -41,12 +41,13 @@ def list_monitors():
         simplified_monitors = []
         for monitor in monitors:
             # If a tag is specified and the monitor doesn't have this tag, skip it
-            if tag and tag not in monitor['tags']:
+            if tag and tag not in [t['name'] for t in monitor['tags']]:
                 continue
             simplified_monitor = {
                 'id': monitor['id'],
                 'name': monitor['name'],
-                'active': monitor['active']
+                'active': monitor['active'],
+                'tags': [t['name'] for t in monitor['tags']]  # Return only the tag names
             }
             simplified_monitors.append(simplified_monitor)
         return jsonify(simplified_monitors), 200
