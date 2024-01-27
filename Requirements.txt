@@ -1,2 +1,3 @@
 Flask
 uptime-kuma-api
+python-dotenv

@@ -1,0 +1,19 @@
+get:
+  description: Check if a specific monitor is active.
+  parameters:
+    - in: path
+      name: monitor_id
+      type: integer
+      required: true
+      description: The ID of the monitor to check.
+  responses:
+    200:
+      description: Returns whether the monitor is active.
+      schema:
+        type: object
+        properties:
+          active:
+            type: boolean
+            example: true
+    500:
+      description: Error fetching monitor active status.
