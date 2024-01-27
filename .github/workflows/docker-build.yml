@@ -35,7 +35,7 @@ jobs:
         tags: |
           ${{ secrets.DOCKERHUB_USERNAME }}/uptime-kuma-rest:${{ github.sha }}
           ${{ secrets.DOCKERHUB_USERNAME }}/uptime-kuma-rest:latest
-        platforms: linux/amd64,linux/arm64
+        platforms: linux/amd64,linux/arm64,linux/arm/v7
     
     - name: Update Docker Hub Description
       uses: peter-evans/dockerhub-description@v4
