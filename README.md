@@ -14,41 +14,78 @@ This Flask application serves as a RESTful API wrapper for Uptime Kuma, providin
 
 ### Prerequisites
 
-- Python 3.8 or newer
+- Docker (if using Docker for deployment)
+- Python 3.8 or newer (if running locally without Docker)
 - An Uptime Kuma instance
 - Flask
 - Flasgger for Swagger UI documentation
 
 ### Installation
 
+#### Using Docker
+
 1. Clone the repository to your local machine:
+```bash
    git clone https://example.com/uptime-kuma-api-wrapper.git
    cd uptime-kuma-api-wrapper
+```
+
+2. Build the Docker image:
+   docker build -t uptime-kuma-api-wrapper .
+
+3. Run the Docker container, replacing the environment variables with your actual Uptime Kuma API credentials and base URL:
+
+```bash
+   docker run -d -p 5000:5000 --env UPTIME_KUMA_USERNAME=your_username --env UPTIME_KUMA_PASSWORD=your_password --env UPTIME_KUMA_BASE_URL=your_uptime_kuma_instance_url uptime-kuma-api-wrapper
+```
+
+#### Running Locally
+
+1. Follow the first step above to clone the repository.
 
 2. Install the required Python packages:
    pip install -r requirements.txt
 
-3. Set up environment variables by creating a .env file in the project root with the following contents:
-   UPTIME_KUMA_USERNAME=your_username
-   UPTIME_KUMA_PASSWORD=your_password
-   UPTIME_KUMA_BASE_URL=http://your-uptime-kuma-instance.com
+3. Set up environment variables by creating a .env file in the project root with the following contents, replacing the values with your actual Uptime Kuma API credentials and base URL:
 
-### Running the Application
+```bash
+UPTIME_KUMA_USERNAME=your_username
+UPTIME_KUMA_PASSWORD=your_password
+UPTIME_KUMA_BASE_URL=http://your-uptime-kuma-instance.com
+```
 
-Start the Flask application by running:
-python app.py
+4. Start the Flask application:
+   python app.py
+
 The application will start on http://localhost:5000/. Swagger UI documentation can be accessed at http://localhost:5000/apidocs.
 
 ## Usage
 
-Here are some example requests you can make to the API:
+### Using curl to Interact with the API
 
-- List Monitors: GET /monitors
-- Get Monitor Details: GET /monitor/{monitor_id}
-- Pause a Monitor: POST /monitor/pause/{monitor_id}
-- Resume a Monitor: POST /monitor/resume/{monitor_id}
-- Check if Monitor is Active: GET /monitor/active/{monitor_id}
-- Get Monitor's Operational Status: GET /monitor/status/{monitor_id}
+#### Pause a Monitor
+
+To pause a monitor, replace monitor_id with the actual ID of the monitor you wish to pause:
+
+```bash
+curl -X POST http://localhost:5000/monitor/pause/<monitor_id>
+```
+
+#### Resume a Monitor
+
+To resume a monitor, replace monitor_id with the actual ID of the monitor you wish to resume:
+
+```bash
+curl -X POST http://localhost:5000/monitor/resume/monitor_id
+```
+
+#### Get Monitor's Active Status
+
+To check if a monitor is active, replace monitor_id with the actual ID of the monitor:
+
+```bash
+curl http://localhost:5000/monitor/active/monitor_id
+```
 
 ## Contributing
 
