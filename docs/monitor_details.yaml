@@ -1,0 +1,16 @@
+# docs/monitor_details.yml
+get:
+  description: Get details for a specific monitor by its ID.
+  parameters:
+    - in: path
+      name: monitor_id
+      type: integer
+      required: true
+      description: The ID of the monitor to retrieve.
+  responses:
+    200:
+      description: Detailed information about the monitor.
+      schema:
+        $ref: '#/definitions/Monitor'
+    404:
+      description: Monitor not found.

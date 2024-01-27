@@ -1,0 +1,18 @@
+# docs/resume_monitor.yml
+post:
+  description: Resume a paused monitor by its ID.
+  parameters:
+    - in: path
+      name: monitor_id
+      type: integer
+      required: true
+      description: The ID of the monitor to resume.
+  responses:
+    200:
+      description: Monitor resumed successfully.
+      schema:
+        type: object
+        properties:
+          msg:
+            type: string
+            example: "Resumed Successfully."

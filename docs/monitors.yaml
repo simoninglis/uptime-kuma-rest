@@ -1,0 +1,23 @@
+# docs/monitors.yml
+get:
+  description: Get a list of monitors with ID, name, and active status.
+  responses:
+    200:
+      description: List of monitors with ID, name, and active status.
+      schema:
+        type: array
+        items:
+          $ref: '#/definitions/MonitorListItem'
+definitions:
+  MonitorListItem:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: The monitor's ID
+      name:
+        type: string
+        description: The monitor's name
+      active:
+        type: boolean
+        description: Whether the monitor is active or not

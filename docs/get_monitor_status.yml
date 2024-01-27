@@ -1,0 +1,27 @@
+# docs/get_monitor_status.yml
+get:
+  description: Get the operational status of a specific monitor.
+  parameters:
+    - in: path
+      name: monitor_id
+      type: integer
+      required: true
+      description: The ID of the monitor whose operational status is being queried.
+  responses:
+    200:
+      description: Returns the operational status of the monitor.
+      schema:
+        type: object
+        properties:
+          status:
+            type: integer
+            description: |
+              The operational status of the monitor, represented as an integer. 
+              Possible values are:
+              - 0: DOWN - The monitored service is down.
+              - 1: UP - The monitored service is up and operational.
+              - 2: PENDING - The status of the monitored service is pending or unknown.
+            enum: [0, 1, 2]
+            example: 1
+    404:
+      description: Monitor not found.

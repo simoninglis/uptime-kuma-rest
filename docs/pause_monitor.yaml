@@ -1,0 +1,18 @@
+# docs/pause_monitor.yml
+post:
+  description: Pause an active monitor by its ID.
+  parameters:
+    - in: path
+      name: monitor_id
+      type: integer
+      required: true
+      description: The ID of the monitor to pause.
+  responses:
+    200:
+      description: Monitor paused successfully.
+      schema:
+        type: object
+        properties:
+          msg:
+            type: string
+            example: "Paused Successfully."
