@@ -43,4 +43,4 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
         repository: ${{ secrets.DOCKERHUB_USERNAME }}/uptime-kuma-rest
-        readme-file: README.md
+        readme-file: README-DOCKER.md
