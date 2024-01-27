@@ -1,11 +1,11 @@
 site_name: Uptime Kuma API Wrapper Documentation
-site_url: https://yourproject.github.io/uptime-kuma-api-wrapper/
+site_url: https://simoninglis.github.io/uptime-kuma-api-wrapper/
 site_description: 'A RESTful API wrapper for Uptime Kuma, providing simplified interaction with monitoring functionalities.'
 site_author: Your Name or Your Organization's Name
 
 # Repository
 repo_name: simoninglis/uptime-kuma-api-wrapper
-repo_url: https://github.com/yourproject/uptime-kuma-api-wrapper
+repo_url: https://github.com/simoninglis/uptime-kuma-api-wrapper
 edit_uri: blob/main/docs/
 
 # Theme configuration
@@ -41,7 +41,6 @@ nav:
 # Plugins
 plugins:
   - search
-  - mkdocs-git-revision-date-localized-plugin
 
 # Extra options
 extra:
