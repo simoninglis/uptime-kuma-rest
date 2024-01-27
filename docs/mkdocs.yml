@@ -1,0 +1,50 @@
+site_name: Uptime Kuma API Wrapper Documentation
+site_url: https://yourproject.github.io/uptime-kuma-api-wrapper/
+site_description: 'A RESTful API wrapper for Uptime Kuma, providing simplified interaction with monitoring functionalities.'
+site_author: Your Name or Your Organization's Name
+
+# Repository
+repo_name: yourproject/uptime-kuma-api-wrapper
+repo_url: https://github.com/yourproject/uptime-kuma-api-wrapper
+edit_uri: blob/main/docs/
+
+# Theme configuration
+theme:
+  name: material
+  logo: images/logo.png
+  favicon: images/favicon.ico
+  palette:
+    primary: indigo
+    accent: indigo
+  features:
+    - instant
+    - navigation.instant
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+
+# Pages
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Usage: usage.md
+  - Development: development.md
+  - FAQ: faq.md
+  - Changelog: changelog.md
+  - API Reference: reference.md
+
+# Plugins
+plugins:
+  - search
+  - mkdocs-git-revision-date-localized-plugin
+
+# Extra options
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/simoninglis/uptime-kuma-api-wrapper
