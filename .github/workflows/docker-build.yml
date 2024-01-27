@@ -26,6 +26,10 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
+    
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::$(cat RELEASE)
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
@@ -33,7 +37,7 @@ jobs:
         context: .
         push: true
         tags: |
-          ${{ secrets.DOCKERHUB_USERNAME }}/uptime-kuma-rest:${{ github.sha }}
+          ${{ secrets.DOCKERHUB_USERNAME }}/uptime-kuma-rest:${{ steps.get_version.outputs.VERSION }}
           ${{ secrets.DOCKERHUB_USERNAME }}/uptime-kuma-rest:latest
         platforms: linux/amd64,linux/arm64,linux/arm/v7
     
