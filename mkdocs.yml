@@ -4,7 +4,7 @@ site_description: 'A RESTful API wrapper for Uptime Kuma, providing simplified i
 site_author: Your Name or Your Organization's Name
 
 # Repository
-repo_name: yourproject/uptime-kuma-api-wrapper
+repo_name: simoninglis/uptime-kuma-api-wrapper
 repo_url: https://github.com/yourproject/uptime-kuma-api-wrapper
 edit_uri: blob/main/docs/
 
