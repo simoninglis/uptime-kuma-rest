@@ -31,7 +31,9 @@ This Flask application serves as a RESTful API wrapper for Uptime Kuma, providin
 ```
 
 2. Build the Docker image:
+```bash
    docker build -t uptime-kuma-api-wrapper .
+```
 
 3. Run the Docker container, replacing the environment variables with your actual Uptime Kuma API credentials and base URL:
 
@@ -44,7 +46,9 @@ This Flask application serves as a RESTful API wrapper for Uptime Kuma, providin
 1. Follow the first step above to clone the repository.
 
 2. Install the required Python packages:
+```bash
    pip install -r requirements.txt
+```
 
 3. Set up environment variables by creating a .env file in the project root with the following contents, replacing the values with your actual Uptime Kuma API credentials and base URL:
 
@@ -55,7 +59,9 @@ UPTIME_KUMA_BASE_URL=http://your-uptime-kuma-instance.com
 ```
 
 4. Start the Flask application:
+```bash
    python app.py
+```
 
 The application will start on http://localhost:5000/. Swagger UI documentation can be accessed at http://localhost:5000/apidocs.
 
