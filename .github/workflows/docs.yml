@@ -20,10 +20,11 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: |
-          pip install mkdocs mkdocs-material
-          # Add any other dependencies for your docs here
+          python -m pip install --upgrade pip
+          pip install mkdocs mkdocs-material mkdocs-git-revision-date-localized-plugin
+
 
       - name: Build Docs
         run: mkdocs build
