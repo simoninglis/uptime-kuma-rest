@@ -137,3 +137,4 @@ dmypy.json
 # other dev files
 concat.sh
 out.txt
+poetry.lock
