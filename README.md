@@ -10,6 +10,11 @@ This Flask application serves as a RESTful API wrapper for Uptime Kuma, providin
 - Monitor Status: Check the current status of a monitor (active/inactive).
 - Service Status: Get the operational status of the service being monitored (UP, DOWN, PENDING).
 
+## Credits
+
+This a trivial wrapper around the excellent uptime-kuma python API by Lucas Held that can be found here: https://github.com/lucasheld/uptime-kuma-api
+
+
 ## Getting Started
 
 ### Prerequisites

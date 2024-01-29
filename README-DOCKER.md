@@ -10,6 +10,10 @@ This Docker image contains the Uptime Kuma API Wrapper, a Flask application that
 - Monitor Status: Check whether a monitor is active or inactive.
 - Service Status: Determine the operational status of monitored services (UP, DOWN, PENDING).
 
+## Credits
+
+This a trivial wrapper around the excellent uptime-kuma python API by Lucas Held that can be found here: https://github.com/lucasheld/uptime-kuma-api
+
 ## Quick Start
 
 ### Running with Docker
@@ -62,7 +66,7 @@ Get Monitor's Active Status: curl http://localhost:5000/monitor/active/monitor_i
 Swagger UI documentation can be accessed at http://localhost:5000/apidocs.
 
 ## Contributing
-We welcome contributions! If you would like to contribute to the project, please follow the standard GitHub fork and pull request workflow.
+We welcome contributions! If you would like to contribute to the project, please follow the standard GitHub fork and pull request workflow.  The github repository is here:  https://github.com/simoninglis/uptime-kuma-rest
 
 ## License
 This project is released under the MIT License. See the LICENSE file in the GitHub repository for more details.
